@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+input {
+  border-radius: 5px;
+}
+
 .basic-flex {
   display: flex;
 }

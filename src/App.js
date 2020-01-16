@@ -4,6 +4,7 @@ import axios from 'axios'
 import Header from './Components/Header'
 import Nav from './Components/Navigation/Nav'
 import Content from './Components/Content/Content'
+import { SERVER } from './Constants'
 
 import './App.css';
 
@@ -15,7 +16,7 @@ import './App.css';
 
 
   componentDidMount() {
-    axios.get('')
+    axios.get(`${SERVER}/allColors`)
     .then(response => {
       console.log(response)
     })
