@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+import Header from './Components/Header'
 import Nav from './Components/Navigation/Nav'
 import Content from './Components/Content/Content'
 
@@ -24,12 +25,11 @@ import './App.css';
   render() {
     return (
       <div className="App">
-      <header className="App-header">
-      </header>
-      <div className="basic-flex">
-        <Nav/>
-        <Content/>
-      </div>
+        <Header/>
+        <div className="basic-flex">
+          <Nav/>
+          <Content/>
+        </div>
       </div>
     )
   }
