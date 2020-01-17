@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import Header from './Components/Header'
 import Nav from './Components/Navigation/Nav'
 import Content from './Components/Content/Content'
+import DetailView from './Components/Content/DetailView'
 import { SERVER } from './Constants'
 
 import './App.css';
@@ -36,13 +38,24 @@ import './App.css';
 
   render() {
     return (
-      <div className="App">
-        <Header/>
-        <div className="basic-flex">
-          <Nav colorNames={this.state.colorNames}/>
-          <Content colors={this.state.colors}/>
+      <Router>
+        <div className="App">
+          <Header/>
+          <div className="basic-flex">
+            <Nav colorNames={this.state.colorNames}/>
+            <Switch>
+
+            <Route exact path="/">
+              <Content colors={this.state.colors}/>
+            </Route>
+            <Route path="/detail">
+              <DetailView/>
+            </Route>
+
+            </Switch>
+          </div>
         </div>
-      </div>
+      </Router>
     )
   }
 }
