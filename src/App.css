@@ -58,9 +58,10 @@ input {
 }
 
 .swatch {
-  border: 1px solid black;
-  margin: 10px;
+  border: 1px solid rgb(186, 182, 182);
+  margin: 10px 40px;
   border-radius: 5px;
+  width: 65%;
 }
 
 .swatch-color {

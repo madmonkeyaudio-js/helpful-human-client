@@ -28,7 +28,6 @@ function Content(props) {
 
     return (
         <div className="content-container">
-            Content
             <div className="content-grid">
                 {randomSixteen}
             </div>

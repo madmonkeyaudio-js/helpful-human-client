@@ -11,7 +11,8 @@ import './App.css';
  class App extends Component {
 
   state = {
-    colors: []
+    colors: [],
+    colorNames: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'Gray']
   }
 
 
@@ -38,7 +39,7 @@ import './App.css';
       <div className="App">
         <Header/>
         <div className="basic-flex">
-          <Nav/>
+          <Nav colorNames={this.state.colorNames}/>
           <Content colors={this.state.colors}/>
         </div>
       </div>
