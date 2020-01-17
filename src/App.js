@@ -18,8 +18,18 @@ import './App.css';
   componentDidMount() {
     axios.get(`${SERVER}/allColors`)
     .then(response => {
-      console.log(response)
+      this.setState({
+        colors: response.data
+      })
     })
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.colors !== this.state.colors){
+      this.setState({
+        colors: this.state.colors
+      })
+    }
   }
 
 
@@ -29,7 +39,7 @@ import './App.css';
         <Header/>
         <div className="basic-flex">
           <Nav/>
-          <Content/>
+          <Content colors={this.state.colors}/>
         </div>
       </div>
     )
