@@ -14,7 +14,9 @@ import './App.css';
 
   state = {
     colors: [],
-    colorNames: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'Gray']
+    colorNames: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'Gray'],
+    detailClicked: false,
+    selectedColor: ''
   }
 
 
@@ -35,28 +37,37 @@ import './App.css';
     }
   }
 
+  selectColor = (selected) => {
+    this.setState({
+      detailClicked: true,
+      selectedColor: selected
+    })
+  }
+
 
   render() {
-    return (
-      <Router>
+    if(this.state.detailClicked === false){
+      return (
         <div className="App">
           <Header/>
           <div className="basic-flex">
             <Nav colorNames={this.state.colorNames}/>
-            <Switch>
-
-            <Route exact path="/">
-              <Content colors={this.state.colors}/>
-            </Route>
-            <Route path="/detail">
-              <DetailView/>
-            </Route>
-
-            </Switch>
+              <Content colors={this.state.colors} selectColor={this.selectColor}/>
           </div>
         </div>
-      </Router>
-    )
+      )
+    }
+    else {
+      return (
+        <div className="App">
+          <Header/>
+          <div className="basic-flex">
+            <Nav colorNames={this.state.colorNames}/>
+              <DetailView color={this.state.selectedColor}/>
+          </div>
+        </div>
+      )
+    }
   }
 }
 

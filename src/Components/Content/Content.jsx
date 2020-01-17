@@ -19,7 +19,7 @@ function Content(props) {
 
         randomSixteen = selectSixteen.map((c, idx) => {
             return (
-                <Swatch swatchKey={idx} color={c.hexId}/>
+                <Swatch swatchKey={idx} color={c.hexId} selectColor={props.selectColor}/>
             )
         });
         
