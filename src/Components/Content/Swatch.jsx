@@ -1,9 +1,12 @@
 import React from 'react'
 
-function Swatch() {
+function Swatch(props) {
     return (
-        <div>
-            
+        <div key={props.swatchKey} className="swatch">
+            <div className="swatch-color" style={{backgroundColor: `#${props.color}`}}>
+
+            </div>
+            <p>{props.color}</p>
         </div>
     )
 }
