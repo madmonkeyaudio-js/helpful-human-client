@@ -27,18 +27,18 @@ import './App.css';
         colors: response.data
       })
     }).then(() => {
-      this.colorsToDisplay();
+      this.colorsToDisplay(1);
     })
   }
 
   componentDidUpdate(prevProps, prevState){
     if(prevState.colors !== this.state.colors){
-      this.colorsToDisplay();
       this.setState({
         colors: this.state.colors, 
         selectedColor: this.state.selectedColor,
         pageNumber: this.state.pageNumber,
-        selectedSwatches: this.state.selectedSwatches
+        selectedSwatches: this.state.selectedSwatches,
+        colorNames: this.state.colorNames 
       })
     }
   }
@@ -56,13 +56,10 @@ import './App.css';
     }
   }
 
-  changePage = (number) => {
+  colorsToDisplay = (number) => {
     this.setState({
       pageNumber: number
     })
-  }
-
-  colorsToDisplay = () => {
     let numOfSwatches = 16;
     let selectedSwatches = [];
     for(let i = ((this.state.pageNumber * numOfSwatches)-numOfSwatches); i < (numOfSwatches * this.state.pageNumber); i++){
@@ -83,7 +80,7 @@ import './App.css';
               <Content 
                 colors={this.state.colors} 
                 toggleDetail={this.toggleDetail} 
-                changePage={this.changePage}
+                changePage={this.colorsToDisplay}
                 selectedSwatches={this.state.selectedSwatches}/>
           </div>
         </div>
