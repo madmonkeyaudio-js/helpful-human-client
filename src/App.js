@@ -32,12 +32,12 @@ import './App.css';
   }
 
   componentDidUpdate(prevProps, prevState){
-    if(prevState.colors !== this.state.colors){
+    if(prevState.selectedSwatches !== this.state.selectedSwatches){
       this.setState({
+        selectedSwatches: this.state.selectedSwatches,
         colors: this.state.colors, 
         selectedColor: this.state.selectedColor,
         pageNumber: this.state.pageNumber,
-        selectedSwatches: this.state.selectedSwatches,
         colorNames: this.state.colorNames 
       })
     }
@@ -60,9 +60,9 @@ import './App.css';
     this.setState({
       pageNumber: number
     })
-    let numOfSwatches = 16;
+    let numOfSwatches = 128;
     let selectedSwatches = [];
-    for(let i = ((this.state.pageNumber * numOfSwatches)-numOfSwatches); i < (numOfSwatches * this.state.pageNumber); i++){
+    for(let i = 0; i < numOfSwatches; i++){
         selectedSwatches.push(this.state.colors[i].hexId)
     }
     this.setState({

@@ -11,7 +11,7 @@ function NumberedPgs(props) {
     if(numberOfPages){
         pages = numberOfPages.map((p, idx) => {
             return (
-                <div key={idx} onClick={() => props.changePage(p)}>
+                <div key={idx} onClick={() => props.changePage(p)} className="page-number">
                     <h3>{p}</h3>
                 </div>
             )
