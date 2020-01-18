@@ -14,6 +14,10 @@ function Content(props) {
     }
 
     if(props.selectedSwatches){
+
+        for(let i = 0; i < (props.selectedSwatches/16); i++) {
+            
+        }
             let sixteenSwatches = props.selectedSwatches.map((s, idx) => {
                 return (
                     <Swatch key={idx} toggleDetail={props.toggleDetail} color={s}/>

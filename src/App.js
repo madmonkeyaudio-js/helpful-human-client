@@ -60,7 +60,7 @@ import './App.css';
     this.setState({
       pageNumber: number
     })
-    let numOfSwatches = 128;
+    let numOfSwatches = this.state.colors.length;
     let selectedSwatches = [];
     for(let i = 0; i < numOfSwatches; i++){
         selectedSwatches.push(this.state.colors[i].hexId)
