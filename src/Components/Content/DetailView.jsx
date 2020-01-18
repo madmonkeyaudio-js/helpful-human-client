@@ -13,7 +13,7 @@ function DetailView(props) {
             <div>
                 All other colors
             </div>
-            <div className="reset-button" onClick={props.clear}>
+            <div className="reset-button" onClick={props.toggleDetail}>
                 Clear
             </div>
         </div>

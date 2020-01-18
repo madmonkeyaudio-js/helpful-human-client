@@ -90,3 +90,11 @@ input {
   width: 15%;
   height: 5%;
 }
+
+.page-view {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 0 40%;
+}
+

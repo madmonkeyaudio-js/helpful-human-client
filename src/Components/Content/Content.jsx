@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Swatch from './Swatch'
+import NumberedPages from '../Navigation/NumberedPgs'
 
 function Content(props) {
 
@@ -14,12 +15,15 @@ function Content(props) {
     }
 
     if(props){
-        console.log('wheeee have props!', props)
+    
+        let displayedSwatches = 16;
+       
+          
         let selectSixteen = props.colors.splice(0, 16);
 
         randomSixteen = selectSixteen.map((c, idx) => {
             return (
-                <Swatch swatchKey={idx} color={c.hexId} selectColor={props.selectColor}/>
+                <Swatch swatchKey={idx} color={c.hexId} toggleDetail={props.toggleDetail}/>
             )
         });
         
@@ -31,6 +35,7 @@ function Content(props) {
             <div className="content-grid">
                 {randomSixteen}
             </div>
+            <NumberedPages/>
         </div>
     )
 }

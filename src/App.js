@@ -15,7 +15,8 @@ import './App.css';
   state = {
     colors: [],
     colorNames: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'Gray'],
-    selectedColor: ''
+    selectedColor: '',
+    pageNumber: 1
   }
 
 
@@ -36,16 +37,17 @@ import './App.css';
     }
   }
 
-  selectColor = (selected) => {
-    this.setState({
-      selectedColor: selected
-    })
-  }
-
-  clearColor = () => {
-    this.setState({
-      selectedColor: ''
-    })
+  toggleDetail = (selected) => {
+    if(!this.state.selectedColor){
+      this.setState({
+        selectedColor: selected
+      })
+    }
+    else {
+      this.setState({
+        selectedColor: ''
+      })
+    }
   }
 
   render() {
@@ -55,7 +57,7 @@ import './App.css';
           <Header/>
           <div className="basic-flex">
             <Nav colorNames={this.state.colorNames}/>
-              <Content colors={this.state.colors} selectColor={this.selectColor}/>
+              <Content colors={this.state.colors} toggleDetail={this.toggleDetail}/>
           </div>
         </div>
       )
@@ -66,7 +68,7 @@ import './App.css';
           <Header/>
           <div className="basic-flex">
             <Nav colorNames={this.state.colorNames}/>
-              <DetailView color={this.state.selectedColor} clear={this.clearColor}/>
+              <DetailView color={this.state.selectedColor} toggleDetail={this.toggleDetail}/>
           </div>
         </div>
       )
