@@ -2,12 +2,20 @@ import React from 'react'
 
 function DetailView(props) {
     return (
-        <div>
-            This is the detail view
-            <div className="swatch" style={{backgroundColor: `#${props.color}`}}>
-               <h1>hello</h1> 
+        <div className="detail-container">
+            <div className="swatch-detail" >
+               <div className="swatch-color" style={{backgroundColor: `#${props.color}`}}>
+               </div>
+               <div>
+                    <h3>{props.color}</h3>
+               </div>
             </div>
-
+            <div>
+                All other colors
+            </div>
+            <div className="reset-button" onClick={props.clear}>
+                Clear
+            </div>
         </div>
     )
 }

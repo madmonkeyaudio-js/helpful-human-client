@@ -15,7 +15,6 @@ import './App.css';
   state = {
     colors: [],
     colorNames: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'Gray'],
-    detailClicked: false,
     selectedColor: ''
   }
 
@@ -39,14 +38,18 @@ import './App.css';
 
   selectColor = (selected) => {
     this.setState({
-      detailClicked: true,
       selectedColor: selected
     })
   }
 
+  clearColor = () => {
+    this.setState({
+      selectedColor: ''
+    })
+  }
 
   render() {
-    if(this.state.detailClicked === false){
+    if(this.state.selectedColor === ""){
       return (
         <div className="App">
           <Header/>
@@ -63,7 +66,7 @@ import './App.css';
           <Header/>
           <div className="basic-flex">
             <Nav colorNames={this.state.colorNames}/>
-              <DetailView color={this.state.selectedColor}/>
+              <DetailView color={this.state.selectedColor} clear={this.clearColor}/>
           </div>
         </div>
       )
