@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import Header from './Components/Header'
 import Nav from './Components/Navigation/Nav'
@@ -14,6 +13,7 @@ import './App.css';
 
   state = {
     colors: [],
+    selectedSwatches: [],
     colorNames: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'Gray'],
     selectedColor: '',
     pageNumber: 1
@@ -26,13 +26,19 @@ import './App.css';
       this.setState({
         colors: response.data
       })
+    }).then(() => {
+      this.colorsToDisplay();
     })
   }
 
   componentDidUpdate(prevProps, prevState){
     if(prevState.colors !== this.state.colors){
+      this.colorsToDisplay();
       this.setState({
-        colors: this.state.colors
+        colors: this.state.colors, 
+        selectedColor: this.state.selectedColor,
+        pageNumber: this.state.pageNumber,
+        selectedSwatches: this.state.selectedSwatches
       })
     }
   }
@@ -50,6 +56,23 @@ import './App.css';
     }
   }
 
+  changePage = (number) => {
+    this.setState({
+      pageNumber: number
+    })
+  }
+
+  colorsToDisplay = () => {
+    let numOfSwatches = 16;
+    let selectedSwatches = [];
+    for(let i = ((this.state.pageNumber * numOfSwatches)-numOfSwatches); i < (numOfSwatches * this.state.pageNumber); i++){
+        selectedSwatches.push(this.state.colors[i].hexId)
+    }
+    this.setState({
+      selectedSwatches
+    })
+  }
+
   render() {
     if(this.state.selectedColor === ""){
       return (
@@ -57,7 +80,11 @@ import './App.css';
           <Header/>
           <div className="basic-flex">
             <Nav colorNames={this.state.colorNames}/>
-              <Content colors={this.state.colors} toggleDetail={this.toggleDetail}/>
+              <Content 
+                colors={this.state.colors} 
+                toggleDetail={this.toggleDetail} 
+                changePage={this.changePage}
+                selectedSwatches={this.state.selectedSwatches}/>
           </div>
         </div>
       )
@@ -68,7 +95,9 @@ import './App.css';
           <Header/>
           <div className="basic-flex">
             <Nav colorNames={this.state.colorNames}/>
-              <DetailView color={this.state.selectedColor} toggleDetail={this.toggleDetail}/>
+              <DetailView 
+                color={this.state.selectedColor} 
+                toggleDetail={this.toggleDetail}/>
           </div>
         </div>
       )

@@ -4,9 +4,8 @@ import Swatch from './Swatch'
 import NumberedPages from '../Navigation/NumberedPgs'
 
 function Content(props) {
-
-    let randomSixteen;
-    if(!props){
+    
+    if(!props.colors){
         return (
             <div>
                 <h1>Sorry No Data here</h1>
@@ -14,30 +13,22 @@ function Content(props) {
         )
     }
 
-    if(props){
-    
-        let displayedSwatches = 16;
-       
-          
-        let selectSixteen = props.colors.splice(0, 16);
-
-        randomSixteen = selectSixteen.map((c, idx) => {
+    if(props.selectedSwatches){
+            let sixteenSwatches = props.selectedSwatches.map((s, idx) => {
+                return (
+                    <Swatch key={idx} toggleDetail={props.toggleDetail} color={s}/>
+                )
+            })
             return (
-                <Swatch swatchKey={idx} color={c.hexId} toggleDetail={props.toggleDetail}/>
+                <div className="content-container">
+                    <div className="content-grid">
+                        {sixteenSwatches}
+                    </div>
+                    <NumberedPages changePage={props.changePage}/>
+                </div>
             )
-        });
-        
-
+        }
     }
 
-    return (
-        <div className="content-container">
-            <div className="content-grid">
-                {randomSixteen}
-            </div>
-            <NumberedPages/>
-        </div>
-    )
-}
 
 export default Content;

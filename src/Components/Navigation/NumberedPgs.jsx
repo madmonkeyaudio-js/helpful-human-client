@@ -1,21 +1,20 @@
 import React from 'react'
 
-function NumberedPgs() {
+function NumberedPgs(props) {
 
     let numberOfPages = []
     let pages;
-    for(let i = 0; i <= 8; i++){
+    for(let i = 1; i <= 8; i++){
         numberOfPages.push(i)
     }
 
     if(numberOfPages){
         pages = numberOfPages.map((p, idx) => {
             return (
-                <div key={idx}>
+                <div key={idx} onClick={() => props.changePage(p)}>
                     <h3>{p}</h3>
                 </div>
             )
-
         })
     }
     return (
