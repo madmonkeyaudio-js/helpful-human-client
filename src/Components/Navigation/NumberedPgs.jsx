@@ -1,27 +1,29 @@
 import React from 'react'
+import {Link, animateScroll as scroll} from 'react-scroll'
 
-function NumberedPgs(props) {
+class NumberedPgs extends React.Component {
 
-    let numberOfPages = []
-    let pages;
-    for(let i = 1; i <= 8; i++){
-        numberOfPages.push(i)
+    state = {
+        pages: [1, 2, 3, 4, 5, 6, 7, 8]
     }
+    render() {
 
-    if(numberOfPages){
-        pages = numberOfPages.map((p, idx) => {
-            return (
-                <div key={idx} onClick={() => props.changePage(p)} className="page-number">
-                    <h3>{p}</h3>
-                </div>
-            )
-        })
+            let pages = this.state.pages.map((p, idx) => {
+                return (
+                    <div className="page-number">
+                        <a href={`#content${p}`}>{p}</a>
+                    </div>
+                    )
+                })
+
+                
+        
+        return (
+            <div className="page-view">
+                    {pages}
+            </div>
+        )
     }
-    return (
-        <div className="page-view">
-            {pages}
-        </div>
-    )
 }
 
 export default NumberedPgs;

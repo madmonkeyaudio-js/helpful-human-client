@@ -33,10 +33,10 @@ function Content(props) {
             
             allSwatches = myArray.map((array, index) => {
                 return(
-                    <div key={index} className="content-grid" id={index}>
+                    <div key={index} className="content-grid" id={`content${index}`}>
                         {array.map((a, idx)=> {
                             return (
-                                <Swatch color={a} toggleDetail={props.toggleDetail}/>
+                                <Swatch color={a} toggleDetail={props.toggleDetail} key={idx}/>
                             )
                         })}
                         <br/>
@@ -45,8 +45,10 @@ function Content(props) {
             })
             
             return (
+                <div className="content-and-pages">
                 <div className="content-container">
                     {allSwatches}
+                </div>
                     <NumberedPages changePage={props.changePage}/>
                 </div>
             )
