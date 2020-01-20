@@ -15,19 +15,38 @@ function Content(props) {
 
     if(props.selectedSwatches){
 
-        for(let i = 0; i < (props.selectedSwatches/16); i++) {
+        let swatchProps = props.selectedSwatches;
+        let allSwatches;
+        let myDivPgs = [];
+        let myArray = [[],[],[],[],[],[],[],[]];
+        let jIterations = 16;
+        let jInitial = 0;
+
+           for(let i = 0; i < 8; i++){
+               myDivPgs.push(i)
+               for(let j = jInitial; j < jIterations + jInitial; j++){
+                   let singleSwatch = swatchProps[j];
+                   myArray[i].push(singleSwatch)
+               }
+                jInitial += 15;
+            }
             
-        }
-            let sixteenSwatches = props.selectedSwatches.map((s, idx) => {
-                return (
-                    <Swatch key={idx} toggleDetail={props.toggleDetail} color={s}/>
+            allSwatches = myArray.map((array, index) => {
+                return(
+                    <div key={index} className="content-grid" id={index}>
+                        {array.map((a, idx)=> {
+                            return (
+                                <Swatch color={a} toggleDetail={props.toggleDetail}/>
+                            )
+                        })}
+                        <br/>
+                    </div>
                 )
             })
+            
             return (
                 <div className="content-container">
-                    <div className="content-grid">
-                        {sixteenSwatches}
-                    </div>
+                    {allSwatches}
                     <NumberedPages changePage={props.changePage}/>
                 </div>
             )

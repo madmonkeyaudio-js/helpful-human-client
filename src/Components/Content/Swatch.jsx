@@ -7,7 +7,7 @@ function Swatch(props) {
             <div className="swatch-color" style={{backgroundColor: `#${props.color}`}}>
             </div>
             <div>
-                <h5>{props.color}</h5>
+                <>{props.color}</>
             </div>
         </div>
     )
