@@ -16,7 +16,8 @@ import './App.css';
     selectedSwatches: [],
     colorNames: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'Gray'],
     selectedColor: '',
-    pageNumber: 1
+    pageNumber: 1,
+    randomColor: ''
   }
 
 
@@ -76,7 +77,9 @@ import './App.css';
         <div className="App">
           <Header/>
           <div className="basic-flex">
-            <Nav colorNames={this.state.colorNames}/>
+            <Nav 
+              colorNames={this.state.colorNames}
+              colors={this.state.colors}/>
               <Content 
                 colors={this.state.colors} 
                 toggleDetail={this.toggleDetail} 
@@ -91,7 +94,9 @@ import './App.css';
         <div className="App">
           <Header/>
           <div className="basic-flex">
-            <Nav colorNames={this.state.colorNames}/>
+            <Nav 
+              colorNames={this.state.colorNames}
+              />
               <DetailView 
                 color={this.state.selectedColor} 
                 toggleDetail={this.toggleDetail}/>

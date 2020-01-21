@@ -1,5 +1,8 @@
+
+
 .App {
   text-align: center;
+  scroll-behavior: smooth;
 }
 
 .App-logo {
@@ -11,6 +14,11 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 .App-header {
@@ -68,7 +76,7 @@ input {
   position: fixed;
   bottom: 0;
   background-color: white;
-  height: 10%;
+  height: 8%;
   width: 83%;
 }
 

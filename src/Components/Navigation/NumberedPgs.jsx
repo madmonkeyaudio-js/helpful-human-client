@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link, animateScroll as scroll} from 'react-scroll'
 
 class NumberedPgs extends React.Component {
 
@@ -10,14 +9,12 @@ class NumberedPgs extends React.Component {
 
             let pages = this.state.pages.map((p, idx) => {
                 return (
-                    <div className="page-number">
-                        <a href={`#content${p - 1}`}>{p}</a>
+                    <div className="page-number" key={idx}>
+                        <a href={`#page${p - 1}`}><h2>{p}</h2></a>
                     </div>
                     )
                 })
 
-                
-        
         return (
             <div className="page-view">
                     {pages}
