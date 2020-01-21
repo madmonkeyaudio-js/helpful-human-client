@@ -10,13 +10,12 @@ class Nav extends React.Component {
         this.setState({
           randomColor: (this.props.colors[Math.floor(Math.random() * (this.props.colors.length - 1))].hexId)
         })
-        console.log(this.state.randomColor)
       }
 
     render() {
         let colorList = this.props.colorNames.map((c, idx) => {
             return (
-                <div key={idx}>
+                <div key={idx} className="color-name">
                     <h5>{c}</h5>
                 </div>
             )
@@ -24,9 +23,11 @@ class Nav extends React.Component {
 
         return (
             <div className="nav-container">
+                 <a href={`#swatch${this.state.randomColor}`}>
                 <div className="reset-button" onClick={this.selectRandomColor}>
-                    <a href={`#swatch${this.state.randomColor}`}><h5>Random Color</h5></a>
+                   <h5>Random Color</h5>
                 </div>
+                </a>
                 <div className="nav-select">
                     {colorList}
                 </div> 

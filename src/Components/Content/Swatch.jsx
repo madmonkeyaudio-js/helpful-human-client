@@ -6,7 +6,7 @@ function Swatch(props) {
         <div className="swatch" onClick={() => props.toggleDetail(props.color)} id={`swatch${props.color}`}>
             <div className="swatch-color" style={{backgroundColor: `#${props.color}`}}>
             </div>
-            <div>
+            <div className="swatch-label">
                 <>{`#${props.color}`}</>
             </div>
         </div>

@@ -7,17 +7,19 @@ class NumberedPgs extends React.Component {
     }
     render() {
 
-            let pages = this.state.pages.map((p, idx) => {
-                return (
+        let pages = this.state.pages.map((p, idx) => {
+            return (
+                <a href={`#page${p - 1}`}>
                     <div className="page-number" key={idx}>
-                        <a href={`#page${p - 1}`}><h2>{p}</h2></a>
+                        <h4>{p}</h4>
                     </div>
-                    )
-                })
+                </a>
+                )
+            })
 
         return (
             <div className="page-view">
-                    {pages}
+                {pages}
             </div>
         )
     }

@@ -46,9 +46,9 @@ function Content(props) {
             
             return (
                 <div className="content-and-pages">
-                <div className="content-container">
-                    {allSwatches}
-                </div>
+                    <div className="content-container">
+                        {allSwatches}
+                    </div>
                     <NumberedPages changePage={props.changePage}/>
                 </div>
             )

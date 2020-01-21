@@ -1,5 +1,3 @@
-
-
 .App {
   text-align: center;
   scroll-behavior: smooth;
@@ -25,13 +23,15 @@ a {
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.App-header img {
+  padding: 0px 20px;
+}
 .App-link {
   color: #61dafb;
 }
@@ -52,13 +52,18 @@ input {
   width: 20%;
 }
 
+.color-name {
+  text-align: left;
+  margin: 0px 0px 0px 20px;
+}
+
 .content-and-pages {
   width: 100%;
   height: auto;
 }
 
 .content-container {
-  height: 90vh;
+  height: 85vh;
   width: 100%;
   overflow: scroll;
 }
@@ -67,12 +72,12 @@ input {
   display: grid;
   grid-template-columns: repeat(4, 25%);
   grid-template-rows: repeat(4, 25%);
-  height: 90%;
+  height: 96%;
   max-width: 100%;
 }
 
 .page-view {
-  margin: 0 auto;
+  margin: 0 0 0 10px;
   position: fixed;
   bottom: 0;
   background-color: white;
@@ -91,11 +96,13 @@ input {
 }
 
 .swatch {
+  overflow: hidden;
   border: 1px solid rgb(186, 182, 182);
-  margin: 10px 40px;
-  border-radius: 5px;
+  margin: 20px 40px;
+  border-radius: 10px;
   width: 80%;
   height: 80%;
+  box-shadow: 1px 1px 1px grey;
 }  
 
 .swatch:hover{
@@ -108,8 +115,13 @@ input {
   height: 80%;
 }  
 
+.swatch-label {
+  text-align: left;
+  margin: 0px 0px 0px 10%;
+}
+
 .detail-container {
-  width: 90%;
+  width: 100%;
   height: 90vh;
 }  
 
@@ -125,12 +137,27 @@ input {
   margin: 20px auto;
   border: 1px solid black;
   border-radius: 5px;
-  width: 45%;
+  width: 80%;
   height: 8%;
   background-color: white;
   text-align: center;
 }  
 
+.clear-button {
+  margin: 20px auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 20%;
+  height: 8%;
+  text-align: center;
+  background-color: white;
+  text-align: center;
+}
+
 .reset-button:hover {
   cursor: pointer;
 }  
+
+.clear-button:hover {
+  cursor: pointer;
+}

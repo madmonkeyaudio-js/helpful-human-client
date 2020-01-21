@@ -80,11 +80,11 @@ import './App.css';
             <Nav 
               colorNames={this.state.colorNames}
               colors={this.state.colors}/>
-              <Content 
-                colors={this.state.colors} 
-                toggleDetail={this.toggleDetail} 
-                changePage={this.colorsToDisplay}
-                selectedSwatches={this.state.selectedSwatches}/>
+            <Content 
+              colors={this.state.colors} 
+              toggleDetail={this.toggleDetail} 
+              changePage={this.colorsToDisplay}
+              selectedSwatches={this.state.selectedSwatches}/>
           </div>
         </div>
       )
@@ -97,9 +97,9 @@ import './App.css';
             <Nav 
               colorNames={this.state.colorNames}
               />
-              <DetailView 
-                color={this.state.selectedColor} 
-                toggleDetail={this.toggleDetail}/>
+            <DetailView 
+              color={this.state.selectedColor} 
+              toggleDetail={this.toggleDetail}/>
           </div>
         </div>
       )
