@@ -18,11 +18,13 @@ function Content(props) {
         let swatchProps = props.selectedSwatches;
         let allSwatches;
         let myDivPgs = [];
-        let myArray = [[],[],[],[],[],[],[],[]];
+        let myArray = [];
+        let numPages = 8;
         let jIterations = 16;
         let jInitial = 0;
 
-           for(let i = 0; i < 8; i++){
+           for(let i = 0; i < numPages; i++){
+               myArray.push([])
                myDivPgs.push(i)
                for(let j = jInitial; j < jIterations + jInitial; j++){
                    let singleSwatch = swatchProps[j];
