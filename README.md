@@ -1,3 +1,19 @@
+## Opening
+
+Be sure to npm install dependencies before loading. 
+
+![general view](./src/images/generalView.png)
+
+## My Implementation
+
+There were a couple revisions I made during the process. My initial thought was to create single pages that (when page number is clicked) would call on the app's state to change the colors. I then realized how annoyed I get when I can't scroll through a list, so I populated a div with all the colors which I could both scroll through and paginate through. 
+
+Once I had populated the content div I set about to make links with react-scroll, but that proved cumbersome and I stuck with a tags instead. Given more time I would figure out a way to paginate the colors on a smooth scroll. 
+
+## Bugs
+
+If you are in the swatch detail view and then click on "Random Color" in left navigation nothing happens, and error 'prop length undefined' is thrown. As a first attempt to fix this, I'd start with switching the view at that point back to the general content page and adjust how random color button processed props. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
