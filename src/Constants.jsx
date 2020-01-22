@@ -1,1 +1,1 @@
-export const SERVER = 'https://helpful-serverjgross.herokuapp.com/'
+export const SERVER = 'https://helpful-serverjgross.herokuapp.com'
